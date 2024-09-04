@@ -12,7 +12,6 @@ This project is a full-stack application built to fulfill the requirements of th
   - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
 - [Frontend Application](#frontend-application)
-- [License](#license)
 
 ## Project Structure
 
@@ -35,3 +34,37 @@ cnx_fullstack_tech_test/
 │   └── ...                   # Other configuration files
 │
 └── README.md                 # Project documentation
+```
+## Technologies Used
+
+- Backend: Node.js, Express.js, express-prometheus-middleware, CORS
+- Frontend: React Typescript
+- Monitoring: Prometheus
+
+## Getting started
+
+# Prerequisites 
+- Node.js v14+
+- npm v6+
+
+# Installation
+1. ```
+git clone https://github.com/yourusername/cnx_fullstack_tech_test.git
+cd cnx_fullstack_tech_test
+```
+2. ```
+git clone https://github.com/yourusername/cnx_fullstack_tech_test.git
+cd cnx_fullstack_tech_test
+```
+
+  
+
+
+
+
+
+
+
+
+
+
