@@ -3,6 +3,7 @@ import './App.css';
 
 const  App = ()  =>{ 
   const FETCH_INTERVAL = 30000;
+  const REFRESH_INTERVAL = 1000; 
   const [loading, setLoading] = useState<Boolean>(false)
   const [serverTime, setSetServerTime] = useState(0)
   const [timeDiff, setTimeDiff] = useState<string>('')
@@ -42,12 +43,6 @@ const  App = ()  =>{
     
   }
 
-  const calculateTimeDifference = () => {
-    const currentEpoch = Date.now(); 
-    const diff = new Date(currentEpoch - serverTime); 
-    setTimeDiff(`${diff.getUTCHours().toString().padStart(2, '0')}:${diff.getUTCMinutes().toString().padStart(2, '0')}:${diff.getUTCSeconds().toString().padStart(2, '0')}`); 
-  }
-
   useEffect(() => {
         fetchTime(); 
         fetchMetrics();
@@ -58,6 +53,22 @@ const  App = ()  =>{
 
         return () => clearInterval(fetchInterval);
   },[])
+
+  const calculateTimeDifference = () => {
+    const currentEpoch = Date.now(); 
+    const diff = new Date(currentEpoch - serverTime); 
+    setTimeDiff(`${diff.getUTCHours().toString().padStart(2, '0')}:${diff.getUTCMinutes().toString().padStart(2, '0')}:${diff.getUTCSeconds().toString().padStart(2, '0')}`); 
+  }
+
+  useEffect(() => {
+    const diffInterval = setInterval(() => {
+      calculateTimeDifference(); 
+
+    }, REFRESH_INTERVAL)
+
+    return () => clearInterval(diffInterval)
+
+  }, [serverTime])
 
 
   if (loading) { return <div>Loading...</div> }
