@@ -43,19 +43,51 @@ cnx_fullstack_tech_test/
 
 ## Getting started
 
-# Prerequisites 
+### Prerequisites 
 - Node.js v14+
 - npm v6+
 
-# Installation
-1. ```
+### Installation
+1.
+```
 git clone https://github.com/yourusername/cnx_fullstack_tech_test.git
 cd cnx_fullstack_tech_test
 ```
-2. ```
-git clone https://github.com/yourusername/cnx_fullstack_tech_test.git
-cd cnx_fullstack_tech_test
+2.
 ```
+cd server
+npm install
+```
+3.
+```
+cd ../client
+npm install
+```
+### Running the application
+4.
+```
+cd server
+node server.js
+```
+The backend server will start on http://localhost:8080.
+
+5.
+```
+cd ../client
+npm start
+```
+The frontend will be available on http://localhost:3000.
+
+## API Endpoints
+- GET /time: Returns the current server time in epoch format.
+- GET /metrics: Returns Prometheus metrics for the API.
+
+## Frontend Application
+The frontend application fetches the server time and metrics every 30 seconds and displays them. It also shows the difference between the server time and the client time in a stopwatch format
+
+
+
+
 
   
 
