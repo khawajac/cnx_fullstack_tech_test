@@ -42,6 +42,12 @@ const  App = ()  =>{
     
   }
 
+  const calculateTimeDifference = () => {
+    const currentEpoch = Date.now(); 
+    const diff = new Date(currentEpoch - serverTime); 
+    setTimeDiff(`${diff.getUTCHours().toString().padStart(2, '0')}:${diff.getUTCMinutes().toString().padStart(2, '0')}:${diff.getUTCSeconds().toString().padStart(2, '0')}`); 
+  }
+
   useEffect(() => {
         fetchTime(); 
         fetchMetrics();
@@ -61,6 +67,7 @@ const  App = ()  =>{
       <div className='grid-container'>
         <div className='grid-content'>
       Server time: {new Date(serverTime).toString()}
+      Time Difference:{timeDiff}
     </div>
     <pre className='grid-content'>
       {metrics}
