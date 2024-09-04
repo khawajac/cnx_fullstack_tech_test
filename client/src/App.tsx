@@ -5,44 +5,53 @@ const  App = ()  =>{
   const FETCH_INTERVAL = 30000;
   const REFRESH_INTERVAL = 1000; 
   const [loading, setLoading] = useState<Boolean>(false)
-  const [serverTime, setSetServerTime] = useState(0)
+  const [serverTime, setServerTime] = useState(0)
   const [timeDiff, setTimeDiff] = useState<string>('')
   const [metrics, setMetrics] = useState<String>('')
 
   const fetchTime = async () => {
-    const res = await fetch('http://localhost:8080/time', {
-      method: 'GET',
-      headers: {
-        "Authorization": 'mysecrettoken',       
-        "Content-Type":"application/json",
-        "Accept": "application/json",
-    },
-    })
-
-    if(!res.ok) {
-      console.error(res.status)
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:8080/time', {
+        method: 'GET',
+        headers: {
+          "Authorization": 'mysecrettoken',
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+      });
+  
+      if (!res.ok) {
+        throw new Error(`Error: ${res.status}`);
+      }
+  
+      const timeData = await res.json();
+      setServerTime(timeData.properties.epoch.description);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
-
-    const timeData = await res.json()
-    setSetServerTime(timeData.properties.epoch.description)
-  }
+  };
 
   const fetchMetrics = async () => {
-    const res = await fetch('http://localhost:8080/metrics', {
-      method: 'GET',
-      headers: {
-        "Authorization": 'mysecrettoken',
+    try {
+      const res = await fetch('http://localhost:8080/metrics', {
+        method: 'GET',
+        headers: {
+          "Authorization": 'mysecrettoken',
+        }
+      });
+      if (!res.ok) {
+        throw new Error(`Error: ${res.status}`);
       }
-    })
-    if(!res.ok){
-      console.error(res.status)
+
+      const metricsData = await res.text();
+      setMetrics(metricsData);
+    } catch (error) {
+      console.error(error);
     }
-
-    const metricsData = await res.text()
-    setMetrics(metricsData)
-    
-  }
-
+  };
   useEffect(() => {
         fetchTime(); 
         fetchMetrics();
