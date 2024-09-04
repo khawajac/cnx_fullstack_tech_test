@@ -1,0 +1,23 @@
+
+.grid-container{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+}
+
+.grid-content{
+    padding: 1rem ;
+    text-align: left;
+}
+
+pre {
+    margin-top: 1rem;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    max-height: 600px;
+    font-size: 0.875rem;
+    color: #333;
+    border: 1px solid #ddd;
+}

@@ -77,12 +77,16 @@ const  App = ()  =>{
     <div className="App">
       <div className='grid-container'>
         <div className='grid-content'>
-      Server time: {new Date(serverTime).toString()}
-      Time Difference:{timeDiff}
+          <h2>Server Time</h2>
+      <p>{new Date(serverTime).toString()}</p>
+      <p>Time Difference:{timeDiff}</p>
     </div>
-    <pre className='grid-content'>
+    <div className='grid-content'>
+    <h2>Metrics</h2>
+    <pre>
       {metrics}
     </pre>
+    </div>
       </div>
     </div>
   );
