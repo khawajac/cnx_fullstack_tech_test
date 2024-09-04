@@ -1,7 +1,6 @@
+import express from 'express';
 
-
-const app = express (); 
-var express = require('express'); 
+const app = express(); 
 
 app.get('/time', (requ, res) => {
     res.send({
@@ -16,3 +15,5 @@ app.get('/time', (requ, res) => {
     });
 
     }); 
+
+    app.listen(8080); 
