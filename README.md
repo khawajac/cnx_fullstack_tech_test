@@ -85,8 +85,7 @@ The frontend will be available on http://localhost:3000.
 ## Frontend Application
 The frontend application fetches the server time and metrics every 30 seconds and displays them. It also shows the difference between the server time and the client time in a stopwatch format
 
-
-
+![Screenshot 2024-09-04 at 14 03 45](https://github.com/user-attachments/assets/d75b12c1-d920-462a-9f67-29506b0e113a)
 
 
   
