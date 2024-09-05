@@ -35,4 +35,3 @@ app.use(expressPrometheusMiddleware({
 }))
 
 app.listen(8080);
-module.exports = app;
