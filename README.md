@@ -37,7 +37,7 @@ cnx_fullstack_tech_test/
 ```
 ## Technologies Used
 
-- Backend: Node.js, Express.js, express-prometheus-middleware, CORS
+- Backend: Node.js, Express.js, express-prometheus-middleware
 - Frontend: React Typescript
 - Monitoring: Prometheus
 
