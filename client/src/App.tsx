@@ -1,4 +1,4 @@
-import React, {useEffect, useState,} from 'react';
+import {useEffect, useState,} from 'react';
 import './App.css';
 
 const  App = ()  =>{ 
@@ -27,6 +27,7 @@ const  App = ()  =>{
   
       const timeData = await res.json();
       setServerTime(timeData.properties.epoch.description);
+
     } catch (error) {
       console.error(error);
     } finally {

@@ -5,9 +5,9 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors())
+
 app.use(function(req, res, next) {
   if (req.headers.authorization !== 'mysecrettoken') {
-
     return res.status(403).json({ error: 'No credentials sent!' });
   }
  res.header("Access-Control-Allow-Origin", "*");
